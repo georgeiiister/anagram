@@ -1,5 +1,5 @@
 import random
-
+from functools import reduce
 
 def words() -> tuple:
     return ('hello',
@@ -55,10 +55,13 @@ def create_anagram_plus():
           f'error_word: {str(err_words) if len(err_words) > 0 else 0}'
           )
 
+def check_anagram(word=None):
+    return reduce(lambda i,j:i==j[::-1],[input('input word for check on anagram >> ') if not word else word]*2)
 
 def main():
     create_anagram_plus()
 
 
+
 if __name__ == '__main__':
-    main()
+   main()
